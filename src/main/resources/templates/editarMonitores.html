@@ -1,24 +1,91 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 			xmlns:th="http://www.thymeleaf.org">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	 <div align="center" width="1500px">
-	
+			<head>
+				<meta charset="utf-8">
+				<title>Editar Monitores</title>
+
+				<style type="text/css">
+					body{
+					 background: red;
+					}
+
+					#Ceditar{
+						position: relative;
+						padding-top: 30px;
+						padding-right: 18px;
+						margin-left: 50%;
+						left: -150px;
+						background:rgba(0,0,0,0.1);
+						height: 340px;
+						width: 300px;
+						border: 3px solid green;
+  						border-radius: 5px;
+					}
+					h1{
+						padding-top: 200px;
+						font-weight: bold;
+
+						}
+				    #foto{
+				    	position: relative;
+				    	margin-left: 50%;
+						left: -100px;
+						height: 70px;
+						width: 50px;
+				    }
+				    #btn{
+				    	position: relative;
+				    	margin-left: 50%;
+						left: -100px;
+						height: 70px;
+						width: 50px;
+				    }
+				</style>
+			</head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> 
+<body background="gray">
+		<h1 align="center">Editar - Monitores</h1>
+
+
+	 <div align="right" id="Ceditar">
+
+	 		<div id="foto"><img src="1.png" width="50px" height="70px"></div>
+	 	
 		<form th:object="${dados}" method="POST" action="/monitores" class="form-inline">
-		<div class="form-group">
-		  
-			     <label for="exampleInputEmail2">Id: </label>
-			     <input type="text" class="form-control" th:field="*{id}" readonly="readonly">
-			  </div>
-			
-		 			  <div class="form-group">
-			     <label for="exampleInputEmail2">Nome: </label>
-			     <input type="text" class="form-control" th:field="*{nome}">
-			  </div>
-			  <div class="form-group">
-			     <label for="exampleInputEmail2">Dia: </label>
-			     <input type="text" class="form-control" th:field="*{dia}">
-			  </div>
-			  <button type="submit" class="btn btn-success">Editar</button>
+			<table align="center">
+
+				<tr height="50px">
+					<td align="right">
+						 <label for="exampleInputEmail2">Id: </label>
+					</td>
+					<td>
+						<input type="text" class="form-control" th:field="*{id}" readonly="readonly">
+					</td>
+				</tr>
+
+				<tr height="50px">
+					<td align="right">
+						<label for="exampleInputEmail2">Nome: </label>
+					</td>
+					<td>
+						  <input type="text" class="form-control" th:field="*{nome}">
+					</td>
+				</tr>
+
+				<tr height="50px">
+					<td align="right">
+						 <label for="exampleInputEmail2">Dia: </label>
+			    
+					</td>
+					<td>
+						 <input type="text" class="form-control" th:field="*{dia}">
+					</td>
+				</tr>
+
+			</table>
+
+			<div id="btn"><button type="submit" class="btn btn-success">Editar</button></div>
+					 
 	</form>
 
 </div>	
@@ -28,7 +95,7 @@
 		
 		
 		
-		
+</body>
 		
 		
 		</html>
