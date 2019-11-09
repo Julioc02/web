@@ -15,10 +15,10 @@ public class Monitores {
 	@GeneratedValue
     public Long id;
 	@NotBlank(message = "Nome é obrigatório")
-	@Size(max = 100)
+    @Size(max = 100)
     private String nome;
   	@NotBlank(message = "Informe o dia")
-  	@Size(max = 8)
+  	@Size(max = 13)
   	private String dia;
 
   	

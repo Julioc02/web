@@ -19,8 +19,7 @@ import com.clj.monitoria.repository.Monitor;
 
 @Controller
 public class MonitoriaController {
-	@Autowired
-	Alunos alunos;
+	
 	@Autowired
 	Monitor monitor;
 		
@@ -40,12 +39,11 @@ public class MonitoriaController {
     public String salvar(@Valid Monitores monitores, BindingResult result,
     		RedirectAttributes attributes) {
     	if(result.hasErrors()) {
-    		return "/(monitores)";
+    		return "redirect:/";
     	}
-    
-   	  monitor.save(monitores);
+   	  monitor.save(monitores);	
    	  attributes.addFlashAttribute("mensagem", "Monitor salvo com sucesso!");	
-   	  return "redirect:/";
+   	 return "redirect:/";
     }
     
     
@@ -62,38 +60,6 @@ public class MonitoriaController {
    	return "editarMonitores";
     }
 
-   
-   
   
-   
-   
-   
-   
-   @GetMapping("/alunos")
-   public ModelAndView Listar() {
-	   ModelAndView modelAndView = new ModelAndView("monitoria");
-	   
-	   modelAndView.addObject("Alunos", alunos.findAll());
-	   modelAndView.addObject(new Aluno());
-	   return modelAndView;
-   }
-   
-   
-   @PostMapping("/aluno")
-   public String Salvar(Aluno aluno) {
-	   this.alunos.save(aluno);
-	   return "redirect:/alunos";
-   }
-   
-   @GetMapping("/delete/{id}")
-   public String delete(@PathVariable("id") Long id) {
-  	alunos.deleteById(id);
-  	return "redirect:/alunos";
-   }
-   
-   @GetMapping("/editarAlunos/{id}")
-   public String editarAlunos(@PathVariable("id") Long id,  Model model) {
-   	model.addAttribute("dados", alunos.findById(id));
-   	return "editarAlunos";
-    }
 }
+

@@ -1,21 +1,25 @@
-package com.clj.monitoria.model;
 
-import javax.annotation.Generated;
-import javax.persistence.Column;
+package com.clj.monitoria.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 public class Aluno {
 	@Id
 	@GeneratedValue
 	private Long id;
-
-	private Integer numero;
-	
-	private String nome;
-
+	@NotNull
+   	private Integer numero;
+	@NotBlank(message = "Informe o nome")
+    @Size(max = 100)
+ 	private String nome;
+    @Size(max = 13)
 	private String dia;
 	
 
