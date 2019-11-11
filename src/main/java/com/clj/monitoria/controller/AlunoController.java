@@ -41,6 +41,18 @@ public class AlunoController {
     	  attributes.addFlashAttribute("mensagem", "Aluno salvo com sucesso!");	
     	 return "redirect:/alunos";
      }
+     
+     
+     @PostMapping("/EA")
+     public String sms(@Valid Aluno aluno, BindingResult result,
+    		 RedirectAttributes attributes) {
+    	 if(result.hasErrors()) {
+      		return "Erro";
+      	}
+         attributes.addFlashAttribute("message", "Aluno editado com sucesso!");
+    	 alunos.save(aluno);
+    	 return "redirect:/alunos";
+     }
           
      @GetMapping("/delete/{id}")
      public String delete(@PathVariable("id") Long id) {

@@ -47,6 +47,19 @@ public class MonitoriaController {
     }
     
     
+    @PostMapping("/malterar")
+    public String editarm(@Valid Monitores monitores, BindingResult result,
+    		RedirectAttributes attributes) {	
+    	if(result.hasErrors()) {
+    		return "editarMonitores";
+    	}
+    	monitor.save(monitores);
+    	attributes.addFlashAttribute("sms", "Monitor editado com sucesso!");
+    	return "redirect:/";
+    }
+    
+
+    
     
    @GetMapping("/deletar/{id}")
    public String deletar(@PathVariable("id") Long id) {
