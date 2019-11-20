@@ -23,7 +23,13 @@ xmlns:th="http://www.thymeleaf.org"
 	<img src="img/1.png" width="60px" height="80px" class="img-rounded">
 	<h1>EEEP Padre João Bosco de Lima</h1>
 <div class="panel-body">
-	<a href="/">Monitores</a>
+	<a href="/monitores">Monitores</a>
+	
+	<div class="alert alert-success" th:text="${mensagem}" 
+		 	 th:if="${not #strings.isEmpty(mensagem)}"></div>
+
+		 	 <div class="alert alert-success" th:text="${message}" 
+		 	 th:if="${not #strings.isEmpty(message)}"></div>
 
 	<form class="form-inline" action="/aluno" method="POST">
 		 	 <div class="form-group">

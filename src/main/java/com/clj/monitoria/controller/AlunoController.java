@@ -22,9 +22,9 @@ public class AlunoController {
      @Autowired
      Alunos alunos;
      
-     @GetMapping("/alunos")
+     @GetMapping("/")
      public ModelAndView Listar() {
-  	   ModelAndView modelAndView = new ModelAndView("monitoria");
+  	   ModelAndView modelAndView = new ModelAndView("index");
   	   modelAndView.addObject("Alunos", alunos.findAll());
   	   modelAndView.addObject(new Aluno());
   	   return modelAndView;
@@ -35,11 +35,11 @@ public class AlunoController {
      public String salvar(@Valid Aluno aluno,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {
-     		return "redirect:/alunos";
+     		return "redirect:/";
      	}
     	  alunos.save(aluno);	
     	  attributes.addFlashAttribute("mensagem", "Aluno salvo com sucesso!");	
-    	 return "redirect:/alunos";
+    	 return "redirect:/";
      }
      
      
@@ -47,17 +47,17 @@ public class AlunoController {
      public String sms(@Valid Aluno aluno, BindingResult result,
     		 RedirectAttributes attributes) {
     	 if(result.hasErrors()) {
-      		return "Erro";
+      		return "redirect:/";
       	}
          attributes.addFlashAttribute("message", "Aluno editado com sucesso!");
     	 alunos.save(aluno);
-    	 return "redirect:/alunos";
+    	 return "redirect:/";
      }
           
      @GetMapping("/delete/{id}")
      public String delete(@PathVariable("id") Long id) {
     	alunos.deleteById(id);
-    	return "redirect:/alunos";
+    	return "redirect:/";
      }
      
      @GetMapping("/editarAlunos/{id}")
