@@ -23,7 +23,7 @@ xmlns:th="http://www.thymeleaf.org"
 	<img src="img/1.png" width="60px" height="80px" class="img-rounded">
 	<h1>EEEP Padre João Bosco de Lima</h1>
 <div class="panel-body">
-	<a href="/adm">Alunos</a>
+	<a href="/userp1">Alunos</a>
 	
 	<div class="alert alert-success" th:text="${sms}" 
 		 	 th:if="${not #strings.isEmpty(sms)}"></div>
@@ -31,7 +31,7 @@ xmlns:th="http://www.thymeleaf.org"
 		 	 <div class="alert alert-success" th:text="${mensa}" 
 		 	 th:if="${not #strings.isEmpty(mensa)}"></div>
 
-	<form class="form-inline" action="/monitores" method="POST">
+	<form class="form-inline" action="/user1" method="POST">
 					  <div class="form-group">
 			     <label for="exampleInputEmail2">Nome: </label>
 			     <input type="text" class="form-control" placeholder="Digite seu nome" name="nome">
@@ -60,9 +60,7 @@ xmlns:th="http://www.thymeleaf.org"
 					<tr class="success">
 					<th width="520px">Nome</th>
 					<th width="300px">Dia</th>
-					<th width="120px">Excluir</th>
-					<th width="120px">Editar</th>
-				</tr>
+							
 				</thead>
 				<tbody>
 					<tr th:each="c : ${Monitores}">
@@ -70,9 +68,7 @@ xmlns:th="http://www.thymeleaf.org"
 						
 					       <td th:text="${c.nome}"></td>
 						   <td th:text="${c.dia}"></td>
-						   <td><a th:href="@{/DMonitores/{id}(id=${c.id})}"><img  src="/img/del2.png"  width="20px" height="20px"/></a></td>
-						   <td><a  th:href="@{/editarMonitores/{id}(id=${c.id})}"><img  src="/img/edit.png"  width="20px" height="20px"/></a></td>		   
-				</tr>
+						</tr>
 				
 				</tbody>			
 			</table>

@@ -28,6 +28,7 @@ public class MonitoresController {
   	   return modelAndView;
      }
      
+   
      
      @PostMapping("/monitores")
      public String Salvar(@Valid Monitores monitores,  BindingResult result,
@@ -39,6 +40,8 @@ public class MonitoresController {
     	  attributes.addFlashAttribute("sms", "Monitor salvo com sucesso!");	
     	 return "redirect:/monitores";
      }
+     
+     
      
      @PostMapping("/EM")
      public String salvar(@Valid Monitores monitores,  BindingResult result,
@@ -66,5 +69,32 @@ public class MonitoresController {
      	return "editarMonitores";
       }
 
+     
+     
+     
+     
+     @GetMapping("/userp2")
+     public ModelAndView Lista() {
+  	   ModelAndView modelAndView = new ModelAndView("usermonitores");
+  	   modelAndView.addObject("Monitores", monitor.findAll());
+  	   modelAndView.addObject(new Monitores());
+  	   return modelAndView;
+     }
+     
+     
+     @PostMapping("/user1")
+     public String SalvarMonitores(@Valid Monitores monitores,  BindingResult result,
+     		RedirectAttributes attributes) {
+     	if(result.hasErrors()) {
+     		return "redirect:/userp2";
+     	}
+    	  monitor.save(monitores);
+    	  attributes.addFlashAttribute("sms", "Monitor salvo com sucesso!");	
+    	 return "redirect:/userp2";
+     }
+     
+
+     
+    
 
 }

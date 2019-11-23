@@ -23,16 +23,20 @@ xmlns:th="http://www.thymeleaf.org"
 	<img src="img/1.png" width="60px" height="80px" class="img-rounded">
 	<h1>EEEP Padre João Bosco de Lima</h1>
 <div class="panel-body">
-	<a href="/adm">Alunos</a>
+	<a href="/userp2">Monitores</a>
 	
-	<div class="alert alert-success" th:text="${sms}" 
-		 	 th:if="${not #strings.isEmpty(sms)}"></div>
+	<div class="alert alert-success" th:text="${mensagem}" 
+		 	 th:if="${not #strings.isEmpty(mensagem)}"></div>
 
-		 	 <div class="alert alert-success" th:text="${mensa}" 
-		 	 th:if="${not #strings.isEmpty(mensa)}"></div>
+		 	 <div class="alert alert-success" th:text="${message}" 
+		 	 th:if="${not #strings.isEmpty(message)}"></div>
 
-	<form class="form-inline" action="/monitores" method="POST">
-					  <div class="form-group">
+	<form class="form-inline" action="/user" method="POST">
+		 	 <div class="form-group">
+			     <label for="exampleInputName2">Número: </label>
+			     <input type="text" class="form-control" placeholder="Número da Chamada" name="numero">
+			  </div>
+			  <div class="form-group">
 			     <label for="exampleInputEmail2">Nome: </label>
 			     <input type="text" class="form-control" placeholder="Digite seu nome" name="nome">
 			  </div>
@@ -58,20 +62,18 @@ xmlns:th="http://www.thymeleaf.org"
 			<table class="table table  table-hover">
 				<thead align="center">
 					<tr class="success">
+					<th width="150px">Número</th>
 					<th width="520px">Nome</th>
 					<th width="300px">Dia</th>
-					<th width="120px">Excluir</th>
-					<th width="120px">Editar</th>
-				</tr>
+									
 				</thead>
 				<tbody>
-					<tr th:each="c : ${Monitores}">
+					<tr th:each="c : ${Alunos}">
 			
-						
+						   <td th:text="${c.numero}"></td>
 					       <td th:text="${c.nome}"></td>
 						   <td th:text="${c.dia}"></td>
-						   <td><a th:href="@{/DMonitores/{id}(id=${c.id})}"><img  src="/img/del2.png"  width="20px" height="20px"/></a></td>
-						   <td><a  th:href="@{/editarMonitores/{id}(id=${c.id})}"><img  src="/img/edit.png"  width="20px" height="20px"/></a></td>		   
+								   
 				</tr>
 				
 				</tbody>			
