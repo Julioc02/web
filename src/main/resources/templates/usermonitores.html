@@ -31,7 +31,7 @@ xmlns:th="http://www.thymeleaf.org"
 		 	 <div class="alert alert-success" th:text="${mensa}" 
 		 	 th:if="${not #strings.isEmpty(mensa)}"></div>
 
-	<form class="form-inline" action="/user1" method="POST">
+	<form class="form-inline" action="/user1" method="GET">
 					  <div class="form-group">
 			     <label for="exampleInputEmail2">Nome: </label>
 			     <input type="text" class="form-control" placeholder="Digite seu nome" name="nome">
@@ -64,8 +64,6 @@ xmlns:th="http://www.thymeleaf.org"
 				</thead>
 				<tbody>
 					<tr th:each="c : ${Monitores}">
-			
-						
 					       <td th:text="${c.nome}"></td>
 						   <td th:text="${c.dia}"></td>
 						</tr>

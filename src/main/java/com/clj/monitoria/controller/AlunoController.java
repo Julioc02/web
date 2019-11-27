@@ -22,7 +22,7 @@ public class AlunoController {
      @Autowired
      Alunos alunos;
        
-     @GetMapping("/home")
+     @GetMapping("/")
      public String PaginaInicial() {
     	 return "home";
      }
@@ -30,10 +30,12 @@ public class AlunoController {
      
      
      
-    @GetMapping("/")
-    public String login() {
-    	return "login";
-    }
+   // @GetMapping("/")
+    //public String login() {
+    	//return "login";
+  //  }		
+    
+    
      @GetMapping("/adm")
      public ModelAndView Listar() {
   	   ModelAndView modelAndView = new ModelAndView("alunos");
@@ -44,7 +46,7 @@ public class AlunoController {
      
     
      
-     @PostMapping("/aluno")
+     @GetMapping("/aluno")
      public String salvar(@Valid Aluno aluno,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {
@@ -55,7 +57,7 @@ public class AlunoController {
     	 return "redirect:/adm";
      }
      
-     @PostMapping("/EA")
+     @GetMapping("/EA")
      public String sms(@Valid Aluno aluno, BindingResult result,
     		 RedirectAttributes attributes) {
     	 if(result.hasErrors()) {
@@ -94,7 +96,7 @@ public class AlunoController {
 
      
      
-     @PostMapping("/user")
+     @GetMapping("/user")
      public String SalvarUser(@Valid Aluno aluno,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {

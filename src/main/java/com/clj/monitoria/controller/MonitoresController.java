@@ -30,7 +30,7 @@ public class MonitoresController {
      
    
      
-     @PostMapping("/monitores")
+     @GetMapping("/monit")
      public String Salvar(@Valid Monitores monitores,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {
@@ -43,7 +43,7 @@ public class MonitoresController {
      
      
      
-     @PostMapping("/EM")
+     @GetMapping("/EM")
      public String salvar(@Valid Monitores monitores,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {
@@ -82,7 +82,7 @@ public class MonitoresController {
      }
      
      
-     @PostMapping("/user1")
+     @GetMapping("/user1")
      public String SalvarMonitores(@Valid Monitores monitores,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {

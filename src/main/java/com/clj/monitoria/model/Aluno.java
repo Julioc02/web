@@ -13,7 +13,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class Aluno {
 	@Id
 	@GeneratedValue
-	private Long id;
+	private  Long id;
 	@NotNull
    	private Integer numero;
 	@NotBlank(message = "Informe o nome")
