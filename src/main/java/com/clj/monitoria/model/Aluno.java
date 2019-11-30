@@ -14,15 +14,29 @@ public class Aluno {
 	@Id
 	@GeneratedValue
 	private  Long id;
-	@NotNull
-   	private Integer numero;
+	
 	@NotBlank(message = "Informe o nome")
     @Size(max = 100)
  	private String nome;
     @Size(max = 13)
 	private String dia;
-	
+    @NotBlank
+    private String telefone;
+    @NotBlank
+	private String data;
 
+	public String getData() {
+		return data;
+	}
+	public void setData(String data) {
+		this.data = data;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
 	public String getDia() {
 		return dia;
 	}
@@ -35,13 +49,7 @@ public class Aluno {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public Integer getNumero() {
-		return numero;
-	}
-	public void setNumero(Integer numero) {
-		this.numero = numero;
-	}
-	public String getNome() {
+		public String getNome() {
 		return nome;
 	}
 	public void setNome(String nome) {

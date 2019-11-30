@@ -4,7 +4,7 @@ xmlns:th="http://www.thymeleaf.org"
 >
 
 <head>
-	<title>Alunos - Aulas PHYTON E HTML/CSS</title>
+	<title>Monitores - Aulas PHYTON E HTML/CSS</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -32,10 +32,15 @@ xmlns:th="http://www.thymeleaf.org"
 		 	 th:if="${not #strings.isEmpty(mensa)}"></div>
 
 	<form class="form-inline" action="/user1" method="GET">
-					  <div class="form-group">
+			 <div class="form-group">
 			     <label for="exampleInputEmail2">Nome: </label>
 			     <input type="text" class="form-control" placeholder="Digite seu nome" name="nome">
 			  </div>
+			   <div class="form-group">
+			     <label for="exampleInputEmail2">Telefone: </label>
+			     <input type="text" class="form-control" placeholder="Digite seu telefone" name="telefone">
+			  </div>
+			
 			  <div class="form-group">
 			     <label for="exampleInputEmail2">Dia: </label>
 			    <select class="form-control" name="dia" placeholder="Selecione Um Dia">
@@ -46,6 +51,10 @@ xmlns:th="http://www.thymeleaf.org"
 					  <option>Sexta-Feira</option>
 			   	 </select>
 			  </div>
+			     <div class="form-group">
+			     <label for="exampleInputEmail2">Data: </label>
+			     <input type="date" class="form-control"  name="data">
+			  </div>
 			  <button type="submit" class="btn btn-success">Cadastrar</button>
 	</form>
 
@@ -53,19 +62,23 @@ xmlns:th="http://www.thymeleaf.org"
 
 	<div class="panel-body">
 	
-		<h1>Alunos - Aulas Phyton e HTML/CSS</h1>
+		<h1>Monitores - Aulas Phyton e HTML/CSS</h1>
 		<div style="width: 60%">
 			<table class="table table  table-hover">
 				<thead align="center">
 					<tr class="success">
 					<th width="520px">Nome</th>
+					<th width="520px">Telefone</th>
 					<th width="300px">Dia</th>
+				  <th width="300px">Data</th>
 							
 				</thead>
 				<tbody>
 					<tr th:each="c : ${Monitores}">
 					       <td th:text="${c.nome}"></td>
+					        <td th:text="${c.telefone}"></td>
 						   <td th:text="${c.dia}"></td>
+						   <td th:text="${c.data}"></td>
 						</tr>
 				
 				</tbody>			

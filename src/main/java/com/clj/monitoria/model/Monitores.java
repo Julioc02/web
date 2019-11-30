@@ -20,7 +20,26 @@ public class Monitores {
   	@NotBlank(message = "Informe o dia")
   	@Size(max = 13)
   	private String dia;
+  	@NotBlank
+  	private String data;
+  	@NotBlank
+    public String getData() {
+		return data;
+	}
 
+	public void setData(String data) {
+		this.data = data;
+	}
+
+	public String getTelefone() {
+		return telefone;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	private String telefone;
   	
   	public Long getId() {
 		return id;

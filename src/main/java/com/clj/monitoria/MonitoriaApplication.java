@@ -10,4 +10,4 @@ public class MonitoriaApplication {
 		SpringApplication.run(MonitoriaApplication.class, args);
 	}
 
-}
+	}

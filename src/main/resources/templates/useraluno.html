@@ -32,14 +32,16 @@ xmlns:th="http://www.thymeleaf.org"
 		 	 th:if="${not #strings.isEmpty(message)}"></div>
 
 	<form class="form-inline" action="/user" method="GET">
-		 	 <div class="form-group">
-			     <label for="exampleInputName2">Número: </label>
-			     <input type="text" class="form-control" placeholder="Número da Chamada" name="numero">
-			  </div>
-			  <div class="form-group">
+					  <div class="form-group">
 			     <label for="exampleInputEmail2">Nome: </label>
 			     <input type="text" class="form-control" placeholder="Digite seu nome" name="nome">
 			  </div>
+			   	<div class="form-group">
+			     <label for="exampleInputName2">Telefone: </label>
+			     <input type="text" class="form-control" placeholder="Número do Telefone" name="telefone">
+			  </div>
+			
+			  
 			  <div class="form-group">
 			     <label for="exampleInputEmail2">Dia: </label>
 			    <select class="form-control" name="dia" placeholder="Selecione Um Dia">
@@ -50,6 +52,11 @@ xmlns:th="http://www.thymeleaf.org"
 					  <option>Sexta-Feira</option>
 			   	 </select>
 			  </div>
+			  <div class="form-group">
+			     <label for="exampleInputEmail2">Data: </label>
+			     <input type="date" class="form-control" name="data">
+			  </div>
+			  
 			  <button type="submit" class="btn btn-success">Cadastrar</button>
 	</form>
 
@@ -62,18 +69,21 @@ xmlns:th="http://www.thymeleaf.org"
 			<table class="table table  table-hover">
 				<thead align="center">
 					<tr class="success">
-					<th width="150px">Número</th>
+					
 					<th width="520px">Nome</th>
+					<th width="520px">Telefone</th>
 					<th width="300px">Dia</th>
+					<th width="300px">Data</th>
 									
 				</thead>
 				<tbody>
 					<tr th:each="c : ${Alunos}">
 			
-						   <td th:text="${c.numero}"></td>
+						  
 					       <td th:text="${c.nome}"></td>
+					       <td th:text="${c.telefone}"></td>
 						   <td th:text="${c.dia}"></td>
-								   
+						    <td th:text="${c.data}"></td>
 				</tr>
 				
 				</tbody>			
