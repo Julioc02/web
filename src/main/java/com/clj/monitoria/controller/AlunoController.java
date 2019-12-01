@@ -61,7 +61,7 @@ public class AlunoController {
      public String sms(@Valid Aluno aluno, BindingResult result,
     		 RedirectAttributes attributes) {
     	 if(result.hasErrors()) {
-      		return "redirect:/";
+      		return "redirect:/adm";
       	}
          attributes.addFlashAttribute("message", "Aluno editado com sucesso!");
     	 alunos.save(aluno);

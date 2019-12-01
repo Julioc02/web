@@ -21,14 +21,14 @@ public class Monitores {
   	@Size(max = 13)
   	private String dia;
   	@NotBlank
-  	private String data;
-  	@NotBlank
-    public String getData() {
-		return data;
+  	private String email;
+  	
+	public String getEmail() {
+		return email;
 	}
 
-	public void setData(String data) {
-		this.data = data;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getTelefone() {

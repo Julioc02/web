@@ -23,13 +23,13 @@ public class Aluno {
     @NotBlank
     private String telefone;
     @NotBlank
-	private String data;
-
-	public String getData() {
-		return data;
+   private String email;
+    
+   	public String getEmail() {
+		return email;
 	}
-	public void setData(String data) {
-		this.data = data;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	public String getTelefone() {
 		return telefone;

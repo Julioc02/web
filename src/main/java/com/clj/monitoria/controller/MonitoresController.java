@@ -34,7 +34,7 @@ public class MonitoresController {
      public String Salvar(@Valid Monitores monitores,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {
-     		return "redirect:/";
+     		return "redirect:/monitores";
      	}
     	  monitor.save(monitores);
     	  attributes.addFlashAttribute("sms", "Monitor salvo com sucesso!");	
