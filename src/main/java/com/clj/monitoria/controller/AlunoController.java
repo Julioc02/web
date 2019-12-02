@@ -24,7 +24,7 @@ public class AlunoController {
        
      @GetMapping("/")
      public String PaginaInicial() {
-    	 return "home";
+    	 return "Home";
      }
      
      
