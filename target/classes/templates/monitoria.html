@@ -23,41 +23,60 @@ xmlns:th="http://www.thymeleaf.org"
 	<img src="img/1.png" width="60px" height="80px" class="img-rounded">
 	<h1>EEEP Padre João Bosco de Lima</h1>
 <div class="panel-body">
-	<a href="/adm">Alunos</a>
-	
-	<div class="alert alert-success" th:text="${sms}" 
+
+		     <div class="alert alert-success" th:text="${sms}" 
 		 	 th:if="${not #strings.isEmpty(sms)}"></div>
 
 		 	 <div class="alert alert-success" th:text="${mensa}" 
 		 	 th:if="${not #strings.isEmpty(mensa)}"></div>
+		 	 
+		     <button type="button" class="btn btn-xs btn-primary" 
+	          data-toggle="modal" data-target="#MyModal">Cadastrar Monitores</button><br>
+	          
+	          
+        <div id="MyModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
-	<form class="form-inline" action="/monit" method="GET">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <center><h4 class="modal-title text-center">Cadastro de Monitores</h4><center>
+                </div>
+                <div class="modal-body">
+                   <form class="form-inline" action="/monit" method="GET">
 					  <div class="form-group">
-			     <label for="exampleInputEmail2">Nome: </label>
-			     <input type="text" class="form-control" placeholder="Digite seu nome" name="nome">
-			  </div>
-			    <div class="form-group">
-			     <label for="exampleInputEmail2">Telefone: </label>
-			     <input type="text" class="form-control" placeholder="Digite seu telefone" name="telefone">
-			  </div>
-			  <div class="form-group">
-			     <label for="exampleInputEmail2">Dia: </label>
-			    <select class="form-control" name="dia" placeholder="Selecione Um Dia">
-					  <option>Segunda-Feira</option>
-					  <option>Terça-Feira</option>
-					  <option>Quarta-Feira</option>
-					  <option>Quinta-Feira</option>
-					  <option>Sexta-Feira</option>
-			   	 </select>
-			  </div>
-			  <div class="form-group">
-			     <label for="exampleInputEmail2">Email: </label>
-			     <input type="email" class="form-control"  name="email" placeholder="Digite seu E-mail">
-			  </div>
+			             <label for="exampleInputEmail2">Nome: </label><br>
+			             <input type="text" class="form-control" placeholder="Digite seu nome" name="nome"><br>
+			           </div>
+			             <div class="form-group">
+			                 <label for="exampleInputEmail2">Telefone: </label><br>
+			                 <input type="text" class="form-control" placeholder="Digite seu telefone" name="telefone"><br>
+			              </div>
+			                  <div class="form-group">
+			                    <label for="exampleInputEmail2">Dia: </label><br>
+			                    <select class="form-control" name="dia" placeholder="Selecione Um Dia"><br>
+				               	  <option>Segunda-Feira</option>
+					              <option>Terça-Feira</option>
+					              <option>Quarta-Feira</option>
+					              <option>Quinta-Feira</option>
+					              <option>Sexta-Feira</option>
+			   	                </select>
+			              </div>
+			                <div class="form-group">
+			                    <label for="exampleInputEmail2">Email: </label><br>
+			                    <input type="email" class="form-control"  name="email" placeholder="Digite seu E-mail"><br>
+			                </div>
 			  
-			  <button type="submit" class="btn btn-success">Cadastrar</button>
-	</form>
-
+			                   <center><button type="submit" class="btn btn-success">Cadastrar</button></center>
+	                 </form>   
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                </div>
+              </div>
+            </div>
+      </div>
 </div>	
 
 	<div class="panel-body">
@@ -77,16 +96,13 @@ xmlns:th="http://www.thymeleaf.org"
 				</thead>
 				<tbody>
 					<tr th:each="c : ${Monitores}">
-			
-						
 					       <td th:text="${c.nome}"></td>
-					        <td th:text="${c.telefone}"></td>
+					       <td th:text="${c.telefone}"></td>
 						   <td th:text="${c.dia}"></td>
-						    <td th:text="${c.email}"></td>
+						   <td th:text="${c.email}"></td>
 						   <td><a th:href="@{/DMonitores/{id}(id=${c.id})}"><img  src="/img/del2.png"  width="20px" height="20px"/></a></td>
 						   <td><a  th:href="@{/editarMonitores/{id}(id=${c.id})}"><img  src="/img/edit.png"  width="20px" height="20px"/></a></td>		   
 				</tr>
-				
 				</tbody>			
 			</table>
 		</div>
@@ -94,4 +110,9 @@ xmlns:th="http://www.thymeleaf.org"
 </div>
 
 </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+  <!-- Importando o js do bootstrap -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 </html>
