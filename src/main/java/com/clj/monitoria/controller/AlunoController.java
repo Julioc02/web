@@ -30,11 +30,7 @@ public class AlunoController {
      
      
      
-   // @GetMapping("/")
-    //public String login() {
-    	//return "login";
-  //  }		
-    
+      
     
      @GetMapping("/adm")
      public ModelAndView Listar() {
