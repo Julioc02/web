@@ -23,7 +23,7 @@ import com.clj.monitoria.repository.Alunos;
 public class AlunoController {
      @Autowired
      Alunos alunos;
-     
+     //metodo para retornar a pagina de login customizada
       // @GetMapping("/login")
        //public String login() {
     	 //  return "login";
