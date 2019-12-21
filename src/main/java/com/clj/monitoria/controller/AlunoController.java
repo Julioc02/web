@@ -24,9 +24,9 @@ public class AlunoController {
      @Autowired
      Alunos alunos;
      
-       @GetMapping("/entrar")
-       public String entrar() {
-    	   return "entrar";
+       @GetMapping("/login")
+       public String login() {
+    	   return "login";
        }
       
      @GetMapping("/")
