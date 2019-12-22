@@ -53,16 +53,16 @@ public class ConfigureSecurity extends WebSecurityConfigurerAdapter{
 		.antMatchers("/editarMonitores/id").hasRole("ADMIN")
 		
 		
-		.antMatchers("/userp1").hasAnyRole("USER", "ADMIN")
-		.antMatchers("/user").hasAnyRole("USER", "ADMIN")
-		.antMatchers("/userp2").hasAnyRole("USER", "ADMIN")
-		.antMatchers("/user1").hasAnyRole("USER", "ADMIN")
+		.antMatchers("/userp1").permitAll()
+		.antMatchers("/user").permitAll()
+		.antMatchers("/userp2").permitAll()
+		.antMatchers("/user1").permitAll()
 		
 		.anyRequest().authenticated()
 		.and()
-		.formLogin();
-		//.loginPage("/login")
-		//.permitAll();
+		.formLogin()
+		.loginPage("/login")
+		.permitAll();
 
 			}
 
