@@ -1,29 +1,67 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
+	<head>
+	    <title>Página de Login</title>
+
+	  <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Página de Login</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
-  </head>
-  <body>
-     <div class="container">
-      <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading">Login</h2>
-        <p>
-          <label for="username" class="sr-only">Usuario</label>
-          <input type="text" id="username" name="username" class="form-control" placeholder="Username" required autofocus>
-        </p>
-        <p>
-          <label for="password" class="sr-only">Senha</label>
-          <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
-        </p>
-<input name="_csrf" type="hidden" value="b92d1d0e-dbcc-4693-b6c5-aa1c72f15849" />
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
-      </form>
-</div>
-</body></html>
+	  <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+	  <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+	  
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	
+	    <link th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+
+	    	</head>
+
+	<body style="background-color: #f9f9f9">
+		<div class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+				<div th:if="${param.error}">
+					<div class="alert alert-danger">Usuário e/ou Senha inválidos!</div>
+				</div>
+
+				<div th:if="${param.logout}">
+					<div class="alert alert-info">Até logo!</div>
+				</div>
+
+				<div class="panel panel-info">
+					<div class="panel-heading">
+				    	<h3 class="panel-title">ENTRE</h3>
+				  	</div>
+					<div class="panel-body">
+						<form action="/login" method="post">
+							<div class="form-group">
+								<input name="username" id="username" class="form-control" placeholder="Usuário"/>
+							</div>
+
+							<div class="form-group">
+								<input type="password" name="password" id="password" class="form-control" placeholder="Senha"/>
+							</div>
+
+							<div class="form-group">
+								<button class="btn btn-primary btn-block">Entrar</button>
+							</div>
+
+							<div class="form-group">
+								<input type="checkbox" id="remember-me" name="remember-me" />
+								<label for="remember-me">Lembrar?</label>
+							</div>
+
+							<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</body>
+</html>
