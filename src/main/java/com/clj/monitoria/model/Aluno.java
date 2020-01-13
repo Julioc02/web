@@ -41,7 +41,7 @@ public class Aluno {
 		return dia;
 	}
 	public void setDia(String dia) {
-		this.dia = dia;
+		this.dia = String.valueOf(dia.toUpperCase());
 	}
 	public Long getId() {
 		return id;
@@ -52,8 +52,7 @@ public class Aluno {
 		public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-	
+	 public void setNome(String nome){
+             this.nome =  String.valueOf(nome.toUpperCase());
+    }
 }

@@ -37,7 +37,7 @@ public class MonitoresController {
      		return "redirect:/monitores";
      	}
     	  monitor.save(monitores);
-    	  attributes.addFlashAttribute("sms", "Monitor salvo com sucesso!");	
+    	  attributes.addFlashAttribute("sms", "O monitor(a) "+monitores.getNome()+ " Foi cadastrado com sucesso!");	
     	 return "redirect:/monitores";
      }
      
@@ -89,7 +89,7 @@ public class MonitoresController {
      		return "redirect:/userp2";
      	}
     	  monitor.save(monitores);
-    	  attributes.addFlashAttribute("sms", "Monitor salvo com sucesso!");	
+    	  attributes.addFlashAttribute("sms", "O monitor(a) "+monitores.getNome()+ " Foi cadastrado com sucesso!");	
     	 return "redirect:/userp2";
      }
      

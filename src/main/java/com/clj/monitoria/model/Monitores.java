@@ -54,7 +54,7 @@ public class Monitores {
 	}
 
 	public void setNome(String nome) {
-		this.nome = nome;
+		this.nome = String.valueOf(nome.toUpperCase());
 	}
 
 	public String getDia() {
@@ -62,7 +62,7 @@ public class Monitores {
 	}
 
 	public void setDia(String dia) {
-		this.dia = dia;
+		this.dia = String.valueOf(dia.toUpperCase());
 	}
 
 	

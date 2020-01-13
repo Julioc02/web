@@ -14,16 +14,66 @@ xmlns:th="http://www.thymeleaf.org"
     	table{
     		background: white;
     	}
+    	
+    	    	
+    	ul {
+          margin: 0;
+           padding: 0;
+           list-style: none;
+           width: 150px;
+        }
+    	
+    	 ul li {
+           position: relative;
+         }
+         li ul {
+           position: absolute;
+           left: 149px;
+           top: 0;
+           display: none;
+        }
+        ul li a {
+           display: block;
+           text-decoration: none;
+           color: #E2144A;
+           background: #fff;
+           padding: 5px;
+           border: 1px solid #ccc; 
+       }
+       	
+         li:hover ul { display: block; }
+       
+        
+    
     
     </style>
 </head>
 <body background="img/bg4.jpg">
 
+<ul id="nav"> 
+    
+    <li><a href="#">Menu</a> 
+      <ul> 
+        <li><a href="/">Página Inicial</a></li> 
+        <li><a href="/userp1">Usuário</a></li> 
+        <li><a href="/adm">Alunos</a></li> 
+        <li><a href="/logout">Sair</a></li> 
+      </ul> 
+    </li>
+ 
+        
+  </ul>
+				
+	
+
+
+
 <div align="center" width="1500px">
 	<img src="img/1.png" width="60px" height="80px" class="img-rounded">
 	<h1>EEEP Padre João Bosco de Lima</h1>
+	
+		
 <div class="panel-body">
-
 		     <div class="alert alert-success" th:text="${sms}" 
 		 	 th:if="${not #strings.isEmpty(sms)}"></div>
 

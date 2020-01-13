@@ -20,18 +20,63 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     	table{
     		background: white;
     	}
+    	
+    	ul {
+          margin: 0;
+           padding: 0;
+           list-style: none;
+           width: 150px;
+        }
+    	
+    	 ul li {
+           position: relative;
+         }
+         li ul {
+           position: absolute;
+           left: 149px;
+           top: 0;
+           display: none;
+        }
+        ul li a {
+           display: block;
+           text-decoration: none;
+           color: #E2144A;
+           background: #fff;
+           padding: 5px;
+           border: 1px solid #ccc; 
+       }
+       	
+         li:hover ul { display: block; }
+       
+        
     
     </style>
 </head>
 <body background="img/bg4.jpg">
 		
-	
 <div layout:fragment="content">
 			<div class="page-header">
 				<h1 align="center"><span sec:authentication="principal.nome"></span>Bem vindo ao sistema!</h1>
 			</div>
 	
 		</div>	
+		
+		
+		
+		
+		<ul id="nav"> 
+    
+    <li><a href="#">Menu</a> 
+      <ul> 
+        <li><a href="/">Página Inicial</a></li> 
+        <li><a href="/userp1">Usuário</a></li> 
+        <li><a href="/monitores">Monitores</a></li> 
+        <li><a href="/logout">Sair</a></li> 
+      </ul> 
+    </li>
+ 
+        
+  </ul>
 		
 <div align="center" width="1500px">
 	<img src="img/1.png" width="60px" height="80px" class="img-rounded">
@@ -60,7 +105,7 @@ xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
                   
                 </div>
                 <div class="modal-body">
-                   <form class="form-inline" action="/aluno" method="GET">
+                   <form class="form-inline" action="/aluno" method="GET" th:object="${aluno}">
 		 	
 			  
 			             <div class="form-group">

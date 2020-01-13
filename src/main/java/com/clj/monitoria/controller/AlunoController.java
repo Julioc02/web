@@ -24,6 +24,7 @@ public class AlunoController {
      @Autowired
      Alunos alunos;
      //metodo para retornar a pagina de login customizada
+     
       @GetMapping("/login")
        public String login() {
     	   return "login";
@@ -38,7 +39,7 @@ public class AlunoController {
       
     
      @GetMapping("/adm")
-     public ModelAndView Listar() {
+     public ModelAndView Listar(Aluno aluno) {
   	   ModelAndView modelAndView = new ModelAndView("alunos");
   	   modelAndView.addObject("Alunos", alunos.findAll());
   	   modelAndView.addObject(new Aluno());
@@ -51,10 +52,10 @@ public class AlunoController {
      public String salvar(@Valid Aluno aluno,  BindingResult result,
      		RedirectAttributes attributes) {
      	if(result.hasErrors()) {
-     		return "redirect:/adm";
+     
      	}
     	  alunos.save(aluno);	
-    	  attributes.addFlashAttribute("mensagem", "Aluno salvo com sucesso!");	
+    	  attributes.addFlashAttribute("mensagem", "O aluno(a) "+aluno.getNome()+ " Foi cadastrado com sucesso!");	
     	 return "redirect:/adm";
      }
      
@@ -104,7 +105,7 @@ public class AlunoController {
      		return "redirect:/userp1";
      	}
     	  alunos.save(aluno);	
-    	  attributes.addFlashAttribute("mensagem", "Aluno salvo com sucesso!");	
+    	  attributes.addFlashAttribute("mensagem", "O aluno(a) "+aluno.getNome()+ " Foi cadastrado com sucesso!");	
     	 return "redirect:/userp1";
      }
 
